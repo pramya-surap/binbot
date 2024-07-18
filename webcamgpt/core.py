@@ -1,7 +1,7 @@
 import os
+
 import numpy as np
 import requests
-from builtins import ValueError
 from webcamgpt.utils import compose_payload
 
 os.environ['OPENAI_API_KEY'] = 'sk-None-t36HYQhky1lyAdpAzZ1cT3BlbkFJEwzvQsYuMexmPHPMubIa'

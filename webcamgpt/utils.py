@@ -2,11 +2,11 @@ import cv2
 import base64
 import numpy as np
 
-
 def encode_image_to_base64(image: np.ndarray) -> str:
+
     success, buffer = cv2.imencode('.jpg', image)
     if not success:
-        raise ValueError("fail.")
+        raise ValueError("Could not encode image to JPEG format.")
 
     encoded_image = base64.b64encode(buffer).decode('utf-8')
     return encoded_image

@@ -1,18 +1,14 @@
 #python3 -m examples.webcam
-
 import os
 import cv2
 import uuid
+
 import gradio as gr
 import numpy as np
 
 import webcamgpt
 
-MARKDOWN = """
-# webcamGPT 💬 + 📸
-
-This is a demo of webcamGPT, a tool that allows you to chat with video using GPT-4. 
-"""
+MARKDOWN = """"""
 
 connector = webcamgpt.OpanAIConnector()
 
