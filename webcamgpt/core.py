@@ -2,7 +2,9 @@ import os
 
 import numpy as np
 import requests
+
 from webcamgpt.utils import compose_payload
+
 
 os.environ['OPENAI_API_KEY'] = 'sk-None-t36HYQhky1lyAdpAzZ1cT3BlbkFJEwzvQsYuMexmPHPMubIa'
 API_KEY = os.getenv('OPENAI_API_KEY')

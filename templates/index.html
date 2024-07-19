@@ -1,0 +1,193 @@
+<!--
+Project Name: EndoSens
+File Name: index.html
+Team Members: Jasmine Guo, Pramya Surapaneni, Kriti Srivastava, Edith Domanski
+Date: June 3, 2024
+Description: This file is the HTML for the index page, which includes the showcase, the
+information containers, and the text carousel on the bottom
+-->
+
+{% extends "layout.html" %}
+
+{% block content %}
+  <!-- Section 1: Title and Subtitle with Typing Effect -->
+  <section class="sec-01">
+    <div class="index-container">
+      <div class="index-container-title"> 
+        <h1>BinBot</h1>
+        <p>Recycling & Sorting for a <span class="green" style="color: green">future</span> that is <span class="auto-type green" style="color:green"></span> </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typing Effect Script -->
+  <script>
+    var typed = new Typed(".auto-type", {
+      strings: ["smarter", "greener", "cleaner"],
+      typeSpeed: 150,
+      backSpeed: 150,
+      loop: true
+    });
+  </script>
+
+  <!-- Section 2: Background Information -->
+  <section class="indexContainer1">
+    <div class="row1">
+      <!--Image for Background-->
+      <div class="imgWrapper1">
+        <img src="{{url_for('static', filename='/img/img2.jpg')}}" alt="Background">
+      </div>
+      <!--Content for Background-->
+      <div class="contentWrapper">
+        <div class="indexContent">
+          <h2>Background</h2>
+          <p>
+            Menstrual disorders are a major issue for women around the world, with around 
+            2.5 million women being diagnosed every year. These symptoms range from behavioral,
+            emotional, and physical symptoms. <strong>Particularly, many menstruation issues involve 
+            dysmenorrhea, which is defined as excessive period pains.</strong> 
+          </p>
+          <p>
+            <strong>While secondary dysmenorrhea causes major issues for those experiencing periods,
+            many doctors and medical professionals downplay the pain and symptoms patients feel.</strong>
+            Additionally, many women avoid discussing potential problems with their menstruation
+            cycle in order to avoid further marginalization and adhere to menstrual etiquette.
+          </p>
+          <a href="#void">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Sensor Information -->
+  <section class="indexContainer2">
+    <div class="row1">
+      <div class="contentWrapper">
+        <!--Content for Sensor Info-->
+        <div class="indexContent">
+          <h2>Our Sensor</h2>
+          <p>
+            Our mission is to make the diagnosis of common untreated menstrual disorders, in particular 
+            endometriosis, more effective and accessible to the average consumer. <strong>EndoSens provides users 
+            with a way to comfortably and continuously collect data to aid health care professionals and 
+            users alike in early diagnosis of chronic menstrual conditions.</strong>
+            <ul> 
+              <li> Comfortable graphic user interface that ensures accessibility and inclusivity </li>
+              <li> Sleek and modern design that allows the user to accurately collect data without 
+                sacrificing any quality of life </li>
+              <li> Repeatedly tested to ensure an accurate and informative experience </li>
+            </ul>
+          </p>
+          <a href="{{url_for('howTo')}}">How to Use</a>        
+        </div>
+      </div>
+      <!--Image for Sensor Info-->
+      <div class="imgWrapper">
+        <img src="{{url_for('static', filename='/img/sensor.jpeg')}}" alt="Background">
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Methodology -->
+  <section class="indexContainer3">
+    <div class="row1">
+      <!--Image for Methodology-->
+      <div class="imgWrapper1">
+        <img src="{{url_for('static', filename='/img/myoware.png')}}" alt="Background">
+      </div>
+      <!--Content for Methodology-->
+      <div class="contentWrapper">
+        <div class="indexContent">
+          <h2>Methodology</h2>
+          <p>
+            Endosens uses a Myoware 2.0 muscle sensor, which detects 
+            electrical activity in a muscle using conductive pads placed on the skin. 
+            When the muscle is activated, individual fibers within it receive electrical
+            impulses, causing them to contract.  
+            <strong>
+              <ul> 
+                <li> The stronger the contraction, the more fibers are active simultaneously, 
+                  resulting in greater electrical activity</li>
+                <li>The sensor's signal processing hardware converts this noisy signal into a 
+                  voltage level, which correlates with the effort exerted to activate the muscle
+                </li>
+              </ul> 
+            </strong>
+          </p>   
+          <p>
+            With this, we track abdominal muscle spasms and cramps, which in turn correspond to 
+            the abdominal pain that people with secondary dysmenorrhea feel.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ScrollReveal Script for Animation -->
+  <script>
+    ScrollReveal({
+      reset: true,
+      distance: '60px',
+      duration: 2500,
+      delay: 400
+    });
+
+    ScrollReveal().reveal('.main-title, .section-title', { delay: 500, origin: 'left' });
+    ScrollReveal().reveal('.sec-01, .image .info', { delay: 600, origin: 'bottom' });
+    ScrollReveal().reveal('.text-box', { delay: 700, origin: 'right' });
+    ScrollReveal().reveal('.media-icons i', { delay: 500, origin: 'bottom', interval: 200 });
+    ScrollReveal().reveal('.sec-02 .image, .sec-03 .image', { delay: 500, origin: 'top' });
+    ScrollReveal().reveal('.media-info li', { delay: 500, origin: 'left', interval: 200 });
+  </script>
+
+  <!-- Overview Section with Card List -->
+  <section class="overview text-dark p-2 text-left">
+    <div class="void" id="void">
+      <div class="crop">
+        <ul id="card-list" style="--count: 6;">
+          <li class="card-li">
+            <div class="card">
+              <span class="model-name">Endometriosis</span>
+              <span>A disease in which tissue similar to the lining of the uterus grows outside the uterus</span>
+            </div>
+          </li>
+          <li class="card-li">
+            <div class="card">
+              <span class="model-name">Uterine Fibroids</span>
+              <span>Noncancerous growths in the uterus that can develop during a woman's childbearing years.</span>
+            </div>
+          </li>
+          <li class="card-li">
+            <div class="card">
+              <span class="model-name">Gynecologic Cancer</span>
+              <span>Type of cancer that affects the female reproductive system, including ovarian cancer, uterine cancer, vaginal cancer, cervical cancer, and vulvar cancer</span>
+            </div>
+          </li>
+          <li class="card-li">
+            <div class="card">
+              <span class="model-name">Interstitial Cystitis</span>
+              <span>A chronic bladder condition that causes pain in the bladder and pelvic floor</span>
+            </div>
+          </li>
+          <li class="card-li">
+            <div class="card">
+              <span class="model-name">Polycystic Ovary Syndrome</span>
+              <span>A chronic hormonal condition that affects the ovaries and is one of the leading causes of female infertility</span>
+            </div>
+          </li>
+          <li class="card-li">
+            <div class="card">
+              <span class="model-name">Adenomyosis</span>
+              <span>Occurs when the tissue that normally lines the uterus grows into the muscular wall of the uterus</span>
+            </div>
+          </li>
+        </ul>
+        <div class="last-circle"></div>
+        <div class="second-circle"></div>
+      </div>
+      <div class="mask"></div>
+      <div class="center-circle"></div>
+    </div>
+  </section>
+
+{% endblock content %}

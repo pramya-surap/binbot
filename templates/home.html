@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EndoSens</title>
+    <script type="module" src="{{url_for('static', filename='/js/home.js')}}" defer></script>
+    
+    <!-- Bootstrap 5 CSS, Icons and custom CSS file links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+    crossorigin="anonymous" defer>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Urbanist:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+    <!-- Bootstrap 5, crypto-js and custom JS script tags-->
+    <!-- Include 'defer' keyword for each to improve loading-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+            crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" 
+            defer integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class="home-page">
+    <!-- lg = large breakpoint, navbar-light = make text dark, headerBG = custom css BG color-->
+    <nav class="navbar navbar-expand-lg navbar-dark nb-background-color">
+        <div class="container">
+            <a href="{{url_for('index')}}" class="navbar-brand">
+                <img src="{{url_for('static', filename='/img/logo.png')}}" alt="Tsunami Logo" class="d-inline-block align-text-top w-50">
+            </a>
+
+            <!--Hamburger Menu Button-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navmenu">
+                <!--links to hamburger button-->
+                <ul class="navbar-nav ms-auto"> 
+                    <li class="nav-item">
+                        <a href="{{url_for('about')}}" class="nav-link hover-underlined-animation nbMenuItem">About The Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('howTo')}}" class="nav-link hover-underlined-animation nbMenuItem">How To Use</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('index')}}" class="nav-link hover-underlined-animation nbMenuItem">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Lading -->
+    <div class="homeLanding">
+        <div class="homeLandingText">
+        <h2 class="homeTitle">Welcome to <br>EndoSens, </h2>
+        <h2 id="welcome"></h2>
+        </div>
+        <img src="{{url_for('static', filename='/img/homelanding.png')}}" alt="Landing Icon" class="homeImg">
+    </div>
+
+    <!-- Start and stop data collection buttons -->
+    <div class="homeContainer">
+        <br>
+        <h3 class="text-center collectingData tabheader"> Start Collecting Your Data </h1>
+        <hr><br> 
+        <div class="buttonContainer">
+            <button id="startCollection">Start Data Collection</button>
+            <button id="endCollection">End Data Collection</button>
+            <p class="collectionStatus1">Status: </p>
+            <p id = "collectionStatus"></p>
+        </div>
+    </div>
+
+    <!-- Information for viewing analytics -->
+    <br><br>
+    <section class="sec-01 section-padding">
+        <div class="index-container">
+          <div class="content">
+            <div class="home-image">
+              <img src="{{url_for('static', filename='/img/sign-in-image.png')}}" alt="" class="img-fluid">
+            </div>
+            <div class="text-box">
+              <h3>Analyzing Your Data</h3>
+              <p>To generate a graph based on your collected data, simply input the year, month, and day into the “View Analytics” section and press the “Get Dataset” button. 
+              </p>
+              <p>Look out for peaks and check analysis provided. If concerning, consider seeking a professional opinion with provided data.
+            </p>
+            </div>
+          </div>
+      </section>
+
+    <div class="homeContainer1">
+        <br>
+        <h3 class="text-center collectingData tabheader"> View Your Analytics </h1>
+        <hr><br> 
+        <div class="container dataForm mb-5">
+            <form>
+               <!--Options for year, month, and day-->
+               <select class="form-select mb-3" aria-label="Default select example" id="getSetYear">
+                <!-- Options for year -->
+                <option selected>Year</option>
+                   <option value="2021">2021</option>
+                   <option value="2022">2022</option>
+                   <option value="2023">2023</option>
+                   <option value="2024">2024</option>
+               </select>
+               <select class="form-select mb-3" aria-label="Default select example" id="getSetMonth">
+               <!-- Options for month -->
+               <option selected>Month</option>
+                   <option value="1">Jan</option>
+                   <option value="2">Feb</option>
+                   <option value="3">Mar</option>
+                   <option value="4">Apr</option>
+                   <option value="5">May</option>
+                   <option value="6">Jun</option>
+                   <option value="7">Jul</option>
+                   <option value="8">Aug</option>
+                   <option value="9">Sep</option>
+                   <option value="10">Oct</option>
+                   <option value="11">Nov</option>
+                   <option value="12">Dec</option>
+               </select>
+               <select class="form-select mb-3" aria-label="Default select example" id="getSetDay">
+                <!-- Options for day -->
+                <option selected>Day</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option> 
+                </select>
+               <button type = "button" id="getDataSet" name="getDataSet" class="btn btn-outline-primary mb-3 w-100">Get Dataset</button> <!--Get dataset button-->
+            </form> 
+        </div>
+
+
+<!-- 3 graphs, per second, per munite, and per 5 minutes -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="tab-container">
+            <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link" id="per-second-tab" data-toggle="tab" href="#per-second" role="tab" aria-controls="per-second" aria-selected="true">Per Second</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="per-minute-tab" data-toggle="tab" href="#per-minute" role="tab" aria-controls="per-minute" aria-selected="false">Per Minute</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="every-five-minutes-tab" data-toggle="tab" href="#every-five-minutes" role="tab" aria-controls="every-five-minutes" aria-selected="false">Every 5 Minutes</a>
+                </li>
+            </ul>
+            <!-- Actual graphs-->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="per-second" role="tabpanel" aria-labelledby="per-second-tab">
+                    <h1>hi</h1>
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="tab-pane fade" id="per-minute" role="tabpanel" aria-labelledby="per-minute-tab">
+                    <h1>hi</h1>
+                    <canvas id="myChart"></canvas>
+                </div>   
+                <div class="tab-pane fade" id="every-five-minutes" role="tabpanel" aria-labelledby="every-five-minutes-tab">
+                    <h1>hi</h1>
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Data analysis table with values and meanings-->
+<section class="data-table">
+    <table class="homeTable">
+        <tr>
+          <th>Values</th>
+          <th>Analysis</th>
+        </tr>
+        <tr>
+          <td bgcolor="lightyellow">0-12</td>
+          <td bgcolor="lightyellow"> These low values might indicate a problem within the sensor or 
+            something irregular with your menstural cycle. If your values are consistently in this range,
+            we recommend seeing a doctor to confirm any doubts.
+          </td>
+        </tr>
+        <tr>
+            <td bgcolor="lightgreen">13-29</td>
+            <td bgcolor="lightgreen">These values are to be expected by somebody who doesn't experience
+                any menstrual disorders. If you are consistently logging values in
+                this range, there is little cause for concern. 
+            </td>
+          </tr>
+        <tr>
+            <td bgcolor="lightyellow">30-37</td>
+            <td bgcolor="lightyellow"> These values can be indicators of a more serious issue. If your data 
+                consistenly falls within this range, we recommend scheduling an appointment to confirm any doubts.
+            </td>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="pink">38-46</td>
+            <td bgcolor="pink"> Values in this range are highly unlikely for those who don't
+                experience mentural disorders and anomalous periods. If your data consistently 
+                falls in this range, we highly reccoment taking your data to a doctor for further
+                diagnosis. However, if a couple values jump in this range once in a while, there 
+                is no need for immense concern.
+            </td>
+        </tr>
+     </table>
+</section>
+
+
+<br><br>
+
+    <!-- Footer HTML -->
+    <footer class="p-5 footer text-light text-center position-relative">
+        <div class="container">
+            <p class="lead ">Copyright &copy; SE 2023</p>
+            <a href="#" class="position-absolute bottom-0 end-0 p-5">
+                <i class="bi bi-arrow-up-circle h2 icon-white"></i>
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>

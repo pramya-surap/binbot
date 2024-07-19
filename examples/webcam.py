@@ -1,4 +1,3 @@
-#python3 -m examples.webcam
 import os
 import cv2
 import uuid
@@ -8,7 +7,11 @@ import numpy as np
 
 import webcamgpt
 
-MARKDOWN = """"""
+MARKDOWN = """
+# webcamGPT 💬 + 📸
+
+This is a demo of webcamGPT, a tool that allows you to chat with video using GPT-4. 
+"""
 
 connector = webcamgpt.OpanAIConnector()
 
@@ -42,5 +45,5 @@ with gr.Blocks() as demo:
             clear_button = gr.ClearButton([message, chatbot])
 
     message.submit(respond, [webcam, message, chatbot], [message, chatbot])
-
+     
 demo.launch(debug=False, show_error=True)
