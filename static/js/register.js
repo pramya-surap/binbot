@@ -1,16 +1,7 @@
-/*
-Project Name: EndoSens
-File Name: register.js
-Team Members: Jasmine Guo, Pramya Surapaneni, Kriti Srivastava, Edith Domanski
-Date: June 3, 2024
-Description: This file provides the JS for registering a new user, including their
-email, password, and name
-*/
 
 // ----------------- Firebase Setup & Initialization ------------------------//
 // Import the functions you need from the SDKs you need
- // Import the functions you need from the SDKs you need
- import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword }
 from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
@@ -22,13 +13,14 @@ from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
  // Your web app's Firebase configuration
  const firebaseConfig = {
-  apiKey: "AIzaSyBfRNxccRTpZnXqHEVpkdFb5uWGZGsS_JU",
-  authDomain: "sensor3-fb-rtd.firebaseapp.com",
-  databaseURL: "https://sensor3-fb-rtd-default-rtdb.firebaseio.com",
-  projectId: "sensor3-fb-rtd",
-  storageBucket: "sensor3-fb-rtd.appspot.com",
-  messagingSenderId: "197359259025",
-  appId: "1:197359259025:web:4e65a4a1e79e32ac1e1e30"
+  apiKey: "AIzaSyDmAt4N1GJOjnWbRrMCnTiLV6oYB0H_efw",
+  authDomain: "binbot-d9c69.firebaseapp.com",
+  databaseURL: "https://binbot-d9c69-default-rtdb.firebaseio.com",
+  projectId: "binbot-d9c69",
+  storageBucket: "binbot-d9c69.appspot.com",
+  messagingSenderId: "224445110708",
+  appId: "1:224445110708:web:33ff1915020316074ffae1",
+  measurementId: "G-FXQGXQGNPW"
 };
 
 // Initialize Firebase
@@ -45,12 +37,13 @@ document.getElementById("submitData").onclick = function(){
   const firstName = document.getElementById("firstName").value
   const lastName = document.getElementById("lastName").value
   const email = document.getElementById("userEmail").value
+  const phoneNumber = document.getElementById("userPhone").value
 
   // Firebase requires a password of at least 6 characters
   const password = document.getElementById("userPass").value
 
   // Validate the user inputs
-  if(!validation(firstName, lastName, email, password)){
+  if(!validation(firstName, lastName, email, phoneNumber, password)){
     return
   }
 
@@ -68,7 +61,8 @@ document.getElementById("submitData").onclick = function(){
       email:email,
       password:encryptPass(password),
       firstName:firstName,
-      lastName:lastName
+      lastName:lastName,
+      phoneNumber:phoneNumber
     })
     .then(() => {
       // Data saved successfully
@@ -92,12 +86,13 @@ function isEmptyorSpaces(str){
 }
 
 // ---------------------- Validate Registration Data -----------------------//
-function validation(firstName, lastName, email, password){
+function validation(firstName, lastName, email, phoneNumber, password){
   let fNameRegex = /^[a-zA-Z]+$/
   let lNameRegex = /^[a-zA-Z]+$/
-  let emailRegex = /^[a-zA-Z0-9]+@ctemc\.org$/
+  let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  let phoneRegex = /^[0-9]{10}$/
 
-  if(isEmptyorSpaces(firstName) || isEmptyorSpaces(lastName) || isEmptyorSpaces(email) || isEmptyorSpaces(password)){
+  if(isEmptyorSpaces(firstName) || isEmptyorSpaces(lastName) || isEmptyorSpaces(email) || isEmptyorSpaces(phoneNumber) || isEmptyorSpaces(password)){
     alert("Please complete all fields")
     return false
   }
@@ -112,6 +107,10 @@ function validation(firstName, lastName, email, password){
   }
   if(!emailRegex.test(email)){
     alert("Please enter a valid email")
+    return false
+  }
+  if(!phoneRegex.test(phoneNumber)){
+    alert("Please enter a valid phone number")
     return false
   }
   return true

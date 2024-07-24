@@ -1,12 +1,3 @@
-<!--
-Project Name: EndoSens
-File Name: register.html
-Team Members: Jasmine Guo, Pramya Surapaneni, Kriti Srivastava, Edith Domanski
-Date: June 3, 2024
-Description: This file gives the HTMl code for the register page, where the user 
-can create a new account
--->
-
 {% extends "layout.html" %}
 
 {% block content %}
@@ -20,12 +11,12 @@ can create a new account
         <!-------- Login Container ---------->
         <div class="row border rounded-5 p-3 bg-white shadow box-area">
         <!---------- Left Box --------->
-           <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #ffa8a8;">
+           <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #ADD8AE;">
                <div class="featured-image mb-3">
-                <img src="{{url_for('static', filename='/img/sign-in-image.png')}}" class="img-fluid" style="width: 250px;">
+                <img src="{{url_for('static', filename='/img/fulllogo.png')}}" class="img-fluid" style="width: 250px;">
                </div>
-               <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Stay Updated</p>
-               <p class="text-white text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace;">Sign in to stay updated on your menstrual health.</p>
+               <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600; padding-top: -40px">Stay Updated</p>
+               <p class="text-white text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace; padding-top: -40px">Sign up to stay updated on your recycling and waste habits!</p>
            </div> 
         <!---------- Right Box ----------->
            <div class="col-md-6 d-flex justify-content-center align-items-center">
@@ -38,8 +29,9 @@ can create a new account
                             <input type="text" placeholder="First Name" id="firstName" class="form-control mb-3">
                             <input type="text" placeholder="Last Name" id="lastName" class="form-control mb-3">
                             <input type="email" placeholder="Email" id="userEmail" class="form-control mb-3">
-                            <input type="password" placeholder="password" id="userPass" class="form-control mb-3">
-                            <button type = "button" id="submitData" name="submitData" class="btn btn-outline-primary mb-3 registerBtn w-100">Register</button>
+                            <input type="tel" placeholder="Phone Number" id="userPhone" class="form-control mb-3">
+                            <input type="password" placeholder="Password" id="userPass" class="form-control mb-3">
+                            <button type="button" id="submitData" name="submitData" class="btn btn-outline-primary mb-3 registerBtn w-100">Register</button>
                             <a href="{{url_for('signIn')}}" class="badge bg-secondary py-1 w-100" style="text-decoration: none;">Already have an account?</a> <!-- Redirects to signin.html-->
                         </form>
                     </div>

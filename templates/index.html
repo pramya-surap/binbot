@@ -1,17 +1,10 @@
-<!--
-Project Name: EndoSens
-File Name: index.html
-Team Members: Jasmine Guo, Pramya Surapaneni, Kriti Srivastava, Edith Domanski
-Date: June 3, 2024
-Description: This file is the HTML for the index page, which includes the showcase, the
-information containers, and the text carousel on the bottom
--->
+
 
 {% extends "layout.html" %}
 
 {% block content %}
   <!-- Section 1: Title and Subtitle with Typing Effect -->
-  <section class="sec-01">
+  <section class="sec-01" >
     <div class="index-container">
       <div class="index-container-title"> 
         <h1>BinBot</h1>
@@ -60,7 +53,7 @@ information containers, and the text carousel on the bottom
   </section>
 
   <!-- Section 3: Sensor Information -->
-  <section class="indexContainer2">
+  <section class="indexContainer2" style="background-image: (url_for('static', filename='/img/homebackground.png'))">
     <div class="row1">
       <div class="contentWrapper">
         <!--Content for Sensor Info-->
@@ -78,7 +71,7 @@ information containers, and the text carousel on the bottom
               <li> Repeatedly tested to ensure an accurate and informative experience </li>
             </ul>
           </p>
-          <a href="{{url_for('howTo')}}">How to Use</a>        
+          <a href="">How to Use</a>        
         </div>
       </div>
       <!--Image for Sensor Info-->

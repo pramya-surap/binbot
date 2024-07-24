@@ -1,7 +1,6 @@
 
 from flask import Flask, render_template, url_for, request, jsonify
 from datetime import datetime
-import pyrebase
 
 # Create a Flask app instance
 app = Flask(__name__)
@@ -15,16 +14,6 @@ is_recording = False
 @app.route("/")
 def index():
     return render_template("index.html")
-
-# Route for the 'How To' page
-@app.route("/howTo")
-def howTo():
-    return render_template("howTo.html")
-
-# Route for the 'About' page
-@app.route("/about")
-def about():
-    return render_template("about.html")
 
 # Route for the 'Register' page
 @app.route("/register")
@@ -40,6 +29,10 @@ def signIn():
 @app.route("/home")
 def home():
     return render_template("home.html")
+
+@app.route("/upgrade")
+def upgrade():
+    return render_template("upgrade.html")
 
 # Route to start recording data
 @app.route("/start")
@@ -63,5 +56,4 @@ def is_record():
     return is_recording
 # Entry point of the script
 if __name__ == "__main__":
-
-    app.run(debug= True, host='10.103.19.0', port=5001)
+    app.run(debug= True, host='10.103.147.19', port=5001)

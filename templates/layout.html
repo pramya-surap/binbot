@@ -1,11 +1,4 @@
-<!--
-Project Name: EndoSens
-File Name: layout.html
-Team Members: Jasmine Guo, Pramya Surapaneni, Kriti Srivastava, Edith Domanski
-Date: June 3, 2024
-Description: This file gives the layout code for about.html, howTo.html, index.html,
-register.html, and signIn.html
--->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,13 +28,16 @@ register.html, and signIn.html
             defer integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" 
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark nb-background-color">
         <div class="container">
             <a href="{{url_for('index')}}" class="navbar-brand">
-                <img src="{{url_for('static', filename='/img/logo.png')}}" alt="Tsunami Logo" class="d-inline-block align-text-top w-50">
+                <img src="{{url_for('static', filename='/img/logo.png')}}" alt="Logo" class="d-inline-block align-text-top w-50">
             </a>
 
             <!--Hamburger Menu Button-->
@@ -53,14 +49,17 @@ register.html, and signIn.html
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item">
-                        <a href="{{url_for('register')}}" class="nav-link hover-underlined-animation nbMenuItem">Register</a>
+                        <a href="{{url_for('register')}}" class="nav-link hover-underlined-animation nbMenuItem">REGISTER</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{url_for('signIn')}}" class="nav-link hover-underlined-animation nbMenuItem">Sign In</a>
+                        <a href="{{url_for('signIn')}}" class="nav-link hover-underlined-animation nbMenuItem">SIGN IN</a>
                     </li>
                 </ul>
             </div>
         </div>
+
+        <div id="mydiv"></div>
+
     </nav>
 
     {% block content %}{% endblock %}

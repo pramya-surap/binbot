@@ -1,11 +1,4 @@
-<!--
-Project Name: EndoSens
-File Name: signIn.html
-Team Members: Jasmine Guo, Pramya Surapaneni, Kriti Srivastava, Edith Domanski
-Date: June 3, 2024
-Description: This file gives the HTMl code for the sign in page, where the user 
-can sign in to an existing account
--->
+
 
 {% extends "layout.html" %}
 
@@ -19,13 +12,13 @@ can sign in to an existing account
         <!-------- Login Container ---------->
         <div class="row border rounded-5 p-3 bg-white shadow box-area">
         <!---------- Left Box --------->
-           <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #ffa8a8;">
-               <div class="featured-image mb-3">
-                <img src="{{url_for('static', filename='/img/sign-in-image.png')}}" class="img-fluid" style="width: 250px;">
-               </div>
-               <p class="text-white fs-3" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Stay Updated</p>
-               <p class="text-white text-wrap text-center" style="width: 14rem; font-family: 'Courier New', Courier, monospace;">Sign in to stay updated on your menstrual health.</p>
-           </div> 
+        <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #ADD8AE;">
+            <div class="featured-image mb-3">
+             <img src="{{url_for('static', filename='/img/fulllogo.png')}}" class="img-fluid" style="width: 250px;">
+            </div>
+            <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600; padding-top: -40px">Stay Updated</p>
+            <p class="text-white text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace; padding-top: -40px">Sign in to stay updated on your recycling and waste habits!</p>
+        </div>
         <!---------- Right Box ----------->
            <div class="col-md-6 d-flex justify-content-center align-items-center">
               <div class="row align-items-center">

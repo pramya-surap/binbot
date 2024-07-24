@@ -1,12 +1,3 @@
-/*
-Project Name: EndoSens
-File Name: signIn.js
-Team Members: Jasmine Guo, Pramya Surapaneni, Kriti Srivastava, Edith Domanski
-Date: June 3, 2024
-Description: This file provides the JS for signing in an existing user,
-requiring them to input their email and password, and giving them an option
-to stay logged in
-*/
 
 // ----------------- Firebase Setup & Initialization ------------------------//
 
@@ -23,14 +14,15 @@ import {getDatabase, ref, set, update, child, get}
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBfRNxccRTpZnXqHEVpkdFb5uWGZGsS_JU",
-  authDomain: "sensor3-fb-rtd.firebaseapp.com",
-  databaseURL: "https://sensor3-fb-rtd-default-rtdb.firebaseio.com",
-  projectId: "sensor3-fb-rtd",
-  storageBucket: "sensor3-fb-rtd.appspot.com",
-  messagingSenderId: "197359259025",
-  appId: "1:197359259025:web:4e65a4a1e79e32ac1e1e30"
-};
+    apiKey: "AIzaSyDmAt4N1GJOjnWbRrMCnTiLV6oYB0H_efw",
+    authDomain: "binbot-d9c69.firebaseapp.com",
+    databaseURL: "https://binbot-d9c69-default-rtdb.firebaseio.com",
+    projectId: "binbot-d9c69",
+    storageBucket: "binbot-d9c69.appspot.com",
+    messagingSenderId: "224445110708",
+    appId: "1:224445110708:web:33ff1915020316074ffae1",
+    measurementId: "G-FXQGXQGNPW"
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
